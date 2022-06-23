@@ -312,12 +312,16 @@ namespace Plugin {
             , _precondition(precondition)
             , _termination(termination)
             , _control(control) {
-
+            
+            std::cout << "ModuleName: " << Core::System::MODULE_NAME 
+                << " | address: " << Core::System::NS_MODULE_NAME::RootMetadata << '\n';
             ASSERT(Core::System::NS_MODULE_NAME::RootMetadata == nullptr);
             Core::System::NS_MODULE_NAME::RootMetadata = this;
+            std::cout << "New RootMetadata: " << this << '\n';
             Core::ServiceAdministrator::Instance().Register(this, &_factory);
         }
         ~Metadata() {
+            std::cout << "Cleanup!\n";
             Core::ServiceAdministrator::Instance().Unregister(this, &_factory);
             Core::System::NS_MODULE_NAME::RootMetadata = nullptr;
         }
