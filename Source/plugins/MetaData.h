@@ -315,7 +315,7 @@ namespace Plugin {
             
             std::cout << "ModuleName: " << Core::System::MODULE_NAME 
                 << " | address: " << Core::System::NS_MODULE_NAME::RootMetadata << '\n';
-            ASSERT(Core::System::NS_MODULE_NAME::RootMetadata == nullptr);
+            //ASSERT(Core::System::NS_MODULE_NAME::RootMetadata == nullptr);
             Core::System::NS_MODULE_NAME::RootMetadata = this;
             std::cout << "New RootMetadata: " << this << '\n';
             Core::ServiceAdministrator::Instance().Register(this, &_factory);
